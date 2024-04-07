@@ -1,0 +1,22 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.brand {
+
+    &__container {
+        @include flexbox();
+    }
+
+    &__logo {
+        @include logo-color;
+        height: 2.5rem;
+    }
+
+    &__name {
+        color: $main-text;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}

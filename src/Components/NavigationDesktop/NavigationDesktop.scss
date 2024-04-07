@@ -2,25 +2,21 @@
 @use "../../styles/partials/utilities/variables" as *;
 
 .navigation {
-
-    &__logo {
-        @include logo-color;
-        height: 2.5rem;
+    
+    &__container {
+        @include flexbox($align-items: center);
     }
 
-    &__branding {
-        color: $main-text;
-        text-transform: uppercase;
-        font-size: 1.5rem;
+    &__link {
+        gap: 1rem;
     }
 
     &--desktop{
         display: none;
         
-        
         @include desktop{
-            display: block;
-            @include flexbox($align-items: center, $gap: 2rem);
+            @include flexbox($align-items: center);
+            margin-top: .5rem;
         }
     }
 }

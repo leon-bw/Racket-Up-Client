@@ -14,21 +14,36 @@
 
     &__link {
         @include flexbox($justify: space-between, $align-items: center);
+        color: $main-text;
     }
 
     &__item {
         @include flexbox($gap: 1rem);
-        padding: 1rem;
+        padding: 0 1rem;
     }
 
     &__icon {
         font-size: 2rem;
         color: $main-text;
+        padding-right: .8rem;
+
+        @include desktop {
+            margin-left: .5rem;
+        }
+    }
+
+    &__menu {
+        @include flexbox();
+        padding-top: .5rem;
+
+        @include desktop {
+            padding-top: 0;
+        }
     }
 
     &--mobile {
         background-color: $background;
-        border-bottom: 2px solid black;
+        border-bottom: 3px solid $main-text;
 
         @include desktop {
             display: none;
@@ -38,4 +53,5 @@
 
 .hamburger-react {
     margin-left: auto;
+    color: $main-text;
 }

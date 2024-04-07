@@ -5,6 +5,7 @@ import { Sling as Hamburger } from "hamburger-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { links } from "../Links/Links";
 import "./NavigationMobile.scss";
+import Branding from "../Branding/Branding";
 
 const NavigationMobile = () => {
   const [isOpen, setOpen] = useState(false);
@@ -14,7 +15,10 @@ const NavigationMobile = () => {
 
   return (
     <div ref={ref} className="navigation--mobile">
-      <Hamburger toggled={isOpen} size={20} toggle={setOpen} color="#fff"/>
+      <div className="navigation__menu">
+      <Branding />
+      <Hamburger toggled={isOpen} size={20} toggle={setOpen}/>
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div

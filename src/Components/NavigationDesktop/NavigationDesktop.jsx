@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
 import "./NavigationDesktop.scss";
 import { links } from "../Links/Links";
-import logo from "../../assets/logo/serving.svg";
+import Branding from "../Branding/Branding";
 
 const NavigationDesktop = () => {
   return (
     <>
-      <nav className="navigation">
+      <nav className="navigation--desktop">
         <div className="navigation__container">
-          <img src={logo} alt="logo" className="navigation__logo" />
-          <h3 className="navigation__branding">racket up</h3>
-          <ul className="navigation--desktop">
+          <Branding />
+          <ul className="navigation__menu">
             {links.map((link) => {
               const { Icon, href, title } = link;
               return (
