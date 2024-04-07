@@ -35,15 +35,41 @@
     &__menu {
         @include flexbox();
         padding-top: .5rem;
+        border-bottom: 3px solid $main-text;
 
         @include desktop {
             padding-top: 0;
+            border-bottom: 0;
         }
+    }
+
+    &__btn {
+        padding: .5rem;
+        margin-top: 1rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        font-weight: 600;
+
+        &--signup {
+            border: 2px solid $accent;
+            background-color: $background;
+            color: $main-text;
+        }
+
+        &--login {
+            background-color: $main-text;
+            color: $background;
+            border: none;
+        }
+    }
+
+    &__btns {
+        padding: 0 1rem;
+        @include flexbox($direction: column);
     }
 
     &--mobile {
         background-color: $background;
-        border-bottom: 3px solid $main-text;
 
         @include desktop {
             display: none;

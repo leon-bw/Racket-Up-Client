@@ -17,6 +17,7 @@
         @include desktop{
             @include flexbox($align-items: center);
             margin-top: .5rem;
+            border-bottom: 3px solid $main-text;
         }
     }
 }

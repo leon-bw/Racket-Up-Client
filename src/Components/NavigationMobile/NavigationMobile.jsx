@@ -16,8 +16,8 @@ const NavigationMobile = () => {
   return (
     <div ref={ref} className="navigation--mobile">
       <div className="navigation__menu">
-      <Branding />
-      <Hamburger toggled={isOpen} size={20} toggle={setOpen}/>
+        <Branding />
+        <Hamburger toggled={isOpen} size={20} toggle={setOpen} />
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -47,9 +47,7 @@ const NavigationMobile = () => {
                   >
                     <a
                       onClick={() => setOpen((prev) => !prev)}
-                      className={
-                        "navigation__link"
-                      }
+                      className={"navigation__link"}
                       href={link.href}
                     >
                       <span className="navigation__item">{link.title}</span>
@@ -58,6 +56,10 @@ const NavigationMobile = () => {
                   </motion.li>
                 );
               })}
+              <div className="navigation__btns">
+              <button className="navigation__btn navigation__btn--signup">Sign Up</button>
+              <button className="navigation__btn navigation__btn--login">Login</button>
+              </div>
             </ul>
           </motion.div>
         )}
