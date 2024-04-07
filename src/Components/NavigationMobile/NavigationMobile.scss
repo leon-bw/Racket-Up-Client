@@ -1,0 +1,41 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.navigation {
+
+    &__list {
+        gap: 2rem;
+        padding: 0;
+    }
+
+    &__list-item {
+        border-radius: 5px;
+    }
+
+    &__link {
+        @include flexbox($justify: space-between, $align-items: center);
+    }
+
+    &__item {
+        @include flexbox($gap: 1rem);
+        padding: 1rem;
+    }
+
+    &__icon {
+        font-size: 2rem;
+        color: $main-text;
+    }
+
+    &--mobile {
+        background-color: $background;
+        border-bottom: 2px solid black;
+
+        @include desktop {
+            display: none;
+        }
+    }
+}
+
+.hamburger-react {
+    margin-left: auto;
+}

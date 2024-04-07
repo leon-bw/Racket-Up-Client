@@ -1,0 +1,26 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.navigation {
+
+    &__logo {
+        @include logo-color;
+        height: 2.5rem;
+    }
+
+    &__branding {
+        color: $main-text;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+    }
+
+    &--desktop{
+        display: none;
+        
+        
+        @include desktop{
+            display: block;
+            @include flexbox($align-items: center, $gap: 2rem);
+        }
+    }
+}
