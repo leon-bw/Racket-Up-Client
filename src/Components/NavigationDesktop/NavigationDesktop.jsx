@@ -13,9 +13,9 @@ const NavigationDesktop = () => {
             {links.map((link) => {
               const { Icon, href, title } = link;
               return (
-                <li className="navigation__item">
+                <li className="navigation__item" key={link.title}>
                   <a href={href} className="navigation__link">
-                    <Icon />
+                    <Icon className="navigation__icon"/>
                     {title}
                   </a>
                 </li>

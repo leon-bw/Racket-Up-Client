@@ -17,7 +17,13 @@
         @include desktop{
             @include flexbox($align-items: center);
             margin-top: .5rem;
-            border-bottom: 3px solid $main-text;
+            border-bottom: 1px solid $main-text;
+        }
+    }
+
+    &__icon {
+        @include desktop {
+            display: none;
         }
     }
 }

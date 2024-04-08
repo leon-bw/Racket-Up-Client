@@ -1,0 +1,11 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.input {
+    @include flexbox($direction: column, $gap: 1rem);
+
+    &__field {
+        border-radius: 5px;
+        border: 1px solid $primary;
+    }
+}
