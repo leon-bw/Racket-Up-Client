@@ -1,0 +1,20 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.btn {
+    background-color: $accent;
+    color: $background;
+    border-radius: 10px;
+    border: none;
+    padding: .5rem 1rem;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+
+
+    &--border{
+        border: 2px solid $accent;
+        background-color: $background;
+        color: $accent;
+    }
+}

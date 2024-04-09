@@ -14,9 +14,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          {/* <Route path="/login" element={<LoginPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </BrowserRouter>
     </>
@@ -24,3 +21,7 @@ function App() {
 }
 
 export default App;
+
+{/* <Route path="/login" element={<LoginPage />} />
+<Route path="/profile" element={<ProfilePage />} />
+<Route path="*" element={<NotFoundPage />} /> */}

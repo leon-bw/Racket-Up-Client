@@ -4,6 +4,12 @@
   filter: invert(90%) sepia(3%) saturate(233%) hue-rotate(323deg) brightness(108%) contrast(96%);
 }
 
+@mixin container {
+  max-width: 80rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
 @mixin desktop {
     @media screen and (min-width: $desktop-breakpoint) {
       @content;
