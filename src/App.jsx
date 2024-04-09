@@ -4,6 +4,7 @@ import NavigationDesktop from "./Components/NavigationDesktop/NavigationDesktop"
 import NavigationMobile from "./Components/NavigationMobile/NavigationMobile";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -22,6 +24,5 @@ function App() {
 
 export default App;
 
-{/* <Route path="/login" element={<LoginPage />} />
-<Route path="/profile" element={<ProfilePage />} />
+{/* <Route path="/profile" element={<ProfilePage />} />
 <Route path="*" element={<NotFoundPage />} /> */}

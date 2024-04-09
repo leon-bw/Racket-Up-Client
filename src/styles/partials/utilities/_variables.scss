@@ -1,10 +1,13 @@
-$background: #202C39;
-$main-text: #f8f3f2;
+$primary-dark: #202C39;
+$primary-light: #FAFDFA;
 $primary: #0B69A0;
-$secondary: #C4C4C4;
-$accent: #F3B416;
-$tertiary: #157F1F;
+$secondary: #E6E8E6;
+$tertiary: #CED0CE;
+$accent: #FF8811;
+$grass: #157F1F;
 $highlight: #C7EF00;
+$shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
 $mobile-breakpoint: 320px;
 $tablet-breakpoint: 768px;

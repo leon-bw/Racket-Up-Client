@@ -55,7 +55,7 @@ const SignUpPage = () => {
             <Input type="text" name="email" label="Email" placeholder="Email" />
             <Input
               type="text"
-              name="email"
+              name="username"
               label="Username"
               placeholder="Username"
             />
@@ -120,10 +120,10 @@ const SignUpPage = () => {
             <p>{error}</p>
           </form>
         </div>
-      </section>
       <p className="signup__switch-page">
-        Have an account? <Link to="/login">Log in</Link>
+        Already have an account? <Link to="/login">Log in</Link>
       </p>
+      </section>
     </main>
   );
 };

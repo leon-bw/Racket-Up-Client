@@ -15,7 +15,7 @@ const NavigationMobile = () => {
   useClickAway(ref, () => setOpen(false));
 
   return (
-    <div ref={ref} className="navigation--mobile">
+    <nav ref={ref} className="navigation--mobile">
       <div className="navigation__menu">
         <Branding />
         <Hamburger toggled={isOpen} size={20} toggle={setOpen} />
@@ -92,7 +92,7 @@ const NavigationMobile = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </nav>
   );
 };
 

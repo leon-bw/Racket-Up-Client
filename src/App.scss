@@ -2,5 +2,6 @@
 @use "./styles/partials/utilities/variables" as *;
 
 body {
-    background-color: $background;
+    background: linear-gradient(180deg, rgba(32,44,57,1) 0%, rgba(11,105,160,1) 100%) no-repeat;
+    height: 100dvh;
 }

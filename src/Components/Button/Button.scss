@@ -3,18 +3,19 @@
 
 .btn {
     background-color: $accent;
-    color: $background;
+    color: $primary-dark;
     border-radius: 10px;
     border: none;
-    padding: .5rem 1rem;
+    padding: 0.65rem 1.25rem;
     width: 100%;
     font-weight: 600;
     text-transform: uppercase;
+    box-shadow: $shadow;
 
 
     &--border{
         border: 2px solid $accent;
-        background-color: $background;
+        background-color: $primary-dark;
         color: $accent;
     }
 }

@@ -2,28 +2,29 @@
 @use "../../styles/partials/utilities/variables" as *;
 
 .signup {
+    padding: .5rem;
     
     &__container {
-        background-color: $main-text;
-        padding: 1rem;
-        margin: .5rem;
-        max-width: 80rem;
-        border-radius: 5px;
+        background-color: $primary-light;
+        max-width: 35rem;
+		width: 100%;
+		margin: 2rem auto;
+		padding: 0.5rem 2rem 2rem;
+		border: none;
+		outline: none;
+		border-radius: 0.25rem;
 
-        @include desktop {
-            margin: auto;
-        }
     }
 
     &__headline {
         text-align: center;
-        color: $main-text;
-        padding: 1rem;
+        color: $primary-light;
+        padding-bottom: 1rem;
     }
 
     &__switch-page {
         margin-top: 2rem;
-        color: $main-text;
+        color: $primary-light;
         text-align: center;
 
         a {
@@ -42,8 +43,13 @@
 .input {
 
     &__field {
+        background-color: $secondary;
         margin: .5rem 0 1rem;
         height: 2rem;
+    }
+
+    &__label {
+        display: none;
     }
 
     &::placeholder {

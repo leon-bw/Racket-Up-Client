@@ -14,7 +14,7 @@
 
     &__link {
         @include flexbox($justify: space-between, $align-items: center);
-        color: $main-text;
+        color: $primary-light;
     }
 
     &__item {
@@ -24,7 +24,7 @@
 
     &__icon {
         font-size: 2rem;
-        color: $main-text;
+        color: $primary-light;
         padding-right: .8rem;
 
         @include desktop {
@@ -35,7 +35,7 @@
     &__menu {
         @include flexbox();
         padding-top: .5rem;
-        border-bottom: 3px solid $main-text;
+        border-bottom: 3px solid $primary-light;
 
         @include desktop {
             padding-top: 0;
@@ -53,13 +53,13 @@
 
         &--signup {
             border: 2px solid $accent;
-            background-color: $background;
-            color: $main-text;
+            background-color: $primary-dark;
+            color: $primary-light;
         }
 
         &--login {
-            background-color: $main-text;
-            color: $background;
+            background-color: $primary-light;
+            color: $primary-dark;
             border: none;
         }
     }
@@ -70,7 +70,6 @@
     }
 
     &--mobile {
-        background-color: $background;
 
         @include desktop {
             display: none;
@@ -80,5 +79,5 @@
 
 .hamburger-react {
     margin-left: auto;
-    color: $main-text;
+    color: $primary-light;
 }
