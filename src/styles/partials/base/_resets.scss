@@ -1,11 +1,13 @@
+@use "../base/typography.scss" as *;
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "GeneralSans", Arial, Helvetica, sans-serif;
 }
 
 body {
+    font-family: "GeneralSans", Arial, Helvetica, sans-serif;
     margin: 0;
 }
 

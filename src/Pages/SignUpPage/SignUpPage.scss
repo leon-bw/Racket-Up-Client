@@ -12,14 +12,17 @@
 		padding: 0.5rem 2rem 2rem;
 		border: none;
 		outline: none;
-		border-radius: 0.25rem;
-
+		border-radius: 0.31rem;
     }
 
     &__headline {
         text-align: center;
         color: $primary-light;
         padding-bottom: 1rem;
+    }
+
+    &__heading {
+        font-weight: 600;
     }
 
     &__switch-page {
@@ -29,6 +32,10 @@
 
         a {
             color: $accent;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -37,6 +44,15 @@
 
     &__btn {
         border: none;
+    }
+
+    select {
+        appearance: none;
+        width: 100%;
+        font-size: .9rem;
+        cursor: pointer;
+        border-radius: 10px;
+        padding-left: 1rem;
     }
 }
 
@@ -51,17 +67,12 @@
     &__label {
         display: none;
     }
-
-    &::placeholder {
-        position: relative;
-        left: 2rem;
-    }
 }
 
 select {
     width: 100%;
     margin: .5rem 0;
-    padding: .5rem 0;
+    padding: 1rem 0;
 }
 
 legend {

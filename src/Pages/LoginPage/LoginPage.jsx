@@ -7,25 +7,35 @@ import Button from "../../Components/Button/Button";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-
+  
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(!e.target.username.value || !e.target.password.value) {
+      // Todo show a message to user
+      return
+    } 
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/users/login",
         {
-          email: e.target.email.value,
+          username: e.target.username.value,
           password: e.target.password.value,
         }
       );
 
-      sessionStorage.setItem("AuthToken", response.data.token);
+      sessionStorage.setItem("AuthToken", response.data.authToken);
+
+      // setIsLoggedIn(true);
 
       navigate("/profile");
     } catch (error) {
-      setError(error.response.data);
+      console.log(error)
+      setError(error.response.data.error.message);
     }
   };
 
@@ -36,8 +46,9 @@ const LoginPage = () => {
           <div className="login__header">
             <h1 className="login__heading">Sign In</h1>
             <p className="login__text">
-              New user?
-              <Link to="/signup" class="login__switch-page">
+              New user ?
+              <Link to="/signup" className="login__switch-page">
+                {" "}
                 Create an account
               </Link>
             </p>

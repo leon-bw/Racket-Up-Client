@@ -6,11 +6,12 @@
     color: $primary-dark;
     border-radius: 10px;
     border: none;
-    padding: 0.65rem 1.25rem;
+    padding: 0.85rem 1.25rem;
     width: 100%;
     font-weight: 600;
     text-transform: uppercase;
     box-shadow: $shadow;
+    cursor: pointer;
 
 
     &--border{

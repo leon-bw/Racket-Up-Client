@@ -5,6 +5,7 @@ import NavigationMobile from "./Components/NavigationMobile/NavigationMobile";
 import HomePage from "./Pages/HomePage/HomePage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -24,5 +26,5 @@ function App() {
 
 export default App;
 
-{/* <Route path="/profile" element={<ProfilePage />} />
-<Route path="*" element={<NotFoundPage />} /> */}
+
+{/* <Route path="*" element={<NotFoundPage />} /> */}

@@ -21,10 +21,19 @@
 
     &__forgot-password {
         color: $primary;
+
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 
     &__switch-page {
         color: $primary;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
 }

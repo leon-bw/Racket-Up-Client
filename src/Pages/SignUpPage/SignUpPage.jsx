@@ -23,9 +23,10 @@ const SignUpPage = () => {
         role: "user",
       });
       navigate("/login");
+
     } catch (error) {
       e.target.reset();
-      setError(error.response.data);
+      setError(error.response.data.error.message);
     }
   };
 
@@ -66,63 +67,28 @@ const SignUpPage = () => {
               placeholder="Password"
             />
             <select name="sport" id="sport">
-              <option value="">- Please select a sport -</option>
+              <option value="">Please select a sport</option>
               <option value="Tennis">Tennis</option>
               <option value="Squash">Squash</option>
               <option value="Badminton">Badminton</option>
             </select>
-            <legend>Please select your preferred skill level</legend>
-            <section className="radio">
-              <Input
-                className="radio__option"
-                type="radio"
-                name="skill_level"
-                id="1"
-                value="novice"
-                label="Novice"
-              />
-              <Input
-                className="radio__option"
-                type="radio"
-                name="skill_level"
-                id="2"
-                value="beginner"
-                label="Beginner"
-              />
-              <Input
-                className="radio__option"
-                type="radio"
-                name="skill_level"
-                id="3"
-                value="intermediate"
-                label="Intermediate"
-              />
-              <Input
-                className="radio__option"
-                type="radio"
-                name="skill_level"
-                id="4"
-                value="advanced"
-                label="Advanced"
-              />
-              <Input
-                className="radio__option"
-                type="radio"
-                name="skill_level"
-                id="5"
-                value="expert"
-                label="Expert"
-              />
+            <section className="signup__skill">
+            <select name="skill_level" id="skill_level">
+              <option value="">Please select a skill level</option>
+              <option value="1">Beginner</option>
+              <option value="2">Intermediate</option>
+              <option value="3">Advanced</option>
+            </select>
             </section>
-            <Link to="/login">
-              <Button type="submit" className="form__btn">Sign Up</Button>
-            </Link>
+              <Button type="submit" className="form__btn">
+                Sign Up
+              </Button>
             <p>{error}</p>
           </form>
         </div>
-      <p className="signup__switch-page">
-        Already have an account? <Link to="/login">Log in</Link>
-      </p>
+        <p className="signup__switch-page">
+          Already have an account? <Link to="/login"> Log in</Link>
+        </p>
       </section>
     </main>
   );
