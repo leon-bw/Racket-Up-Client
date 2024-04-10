@@ -5,14 +5,8 @@
     padding: .5rem;
 
     &__container {
-        background-color: $primary-light;
-        max-width: 28rem;
-		width: 100%;
-		margin: 2rem auto;
-		padding: 2rem 2rem;
-		border: none;
-		outline: none;
-		border-radius: 0.25rem;
+        @include container;
+        max-width: 25rem;
     }
 
     &__control {

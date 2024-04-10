@@ -1,0 +1,53 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.profile {
+    padding: 0 .5rem;
+
+    &__container {
+        @include container;
+        max-width: 50rem;
+    }
+
+    &__avatar {
+        background-color: $accent;
+        height: 2.75rem;
+        width: 2.75rem;
+        border-radius: 50%;
+        @include flexbox($justify: center, $align-items: center);
+        color: $primary-dark;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    &__find-game {
+        @include container;
+        background-color: $tertiary;
+        box-shadow: $shadow;
+        max-width: 48rem;
+    }
+
+    &__logout {
+        width: 4rem;
+        padding: .4rem;
+    }
+
+    &__banner {
+        @include flexbox($justify: space-between, $align-items: center, $wrap: wrap-reverse);
+    }
+
+    &__welcome {
+        color: $primary-dark;
+        font-size: 1.5rem;
+    }
+
+    &__date {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    &__game {
+        background-color: $grass;
+        color: $primary-light;
+    }
+}

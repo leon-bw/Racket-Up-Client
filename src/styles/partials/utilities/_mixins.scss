@@ -5,9 +5,14 @@
 }
 
 @mixin container {
-  max-width: 80rem;
-  padding: 0 1rem;
-  margin: 0 auto;
+  background-color: $primary-light;
+  max-width: 35rem;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0.8rem 2rem 2rem;
+  border: none;
+  outline: none;
+  border-radius: .62rem;
 }
 
 @mixin desktop {
