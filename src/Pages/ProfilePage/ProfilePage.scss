@@ -7,29 +7,56 @@
     &__container {
         @include container;
         max-width: 50rem;
+        padding: 0.5rem 1rem;
     }
 
     &__avatar {
-        background-color: $accent;
-        height: 2.75rem;
-        width: 2.75rem;
+        background-color: $primary;
+        color: $primary-light;
+        height: 2.05rem;
+        width: 2.05rem;
         border-radius: 50%;
         @include flexbox($justify: center, $align-items: center);
-        color: $primary-dark;
         font-weight: 600;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     &__find-game {
-        @include container;
-        background-color: $tertiary;
+        @extend .profile__container;
+        background-color: $secondary;
         box-shadow: $shadow;
-        max-width: 48rem;
+        padding: 1rem;
+    }
+
+    &__sport {
+        @include flexbox($justify: space-between, $align-items: center);
+        @extend .profile__find-game;
+        background-color: $secondary;
+    }
+
+    &__heading {
+        font-weight: 500;
+    }
+
+    &__skill {
+        @extend .profile__sport;
     }
 
     &__logout {
-        width: 4rem;
-        padding: .4rem;
+        width: 2rem;
+        padding: .2rem;
+    }
+
+    &__icon {
+        font-size: 1.2rem;
+        padding: .1rem;
+    }
+
+    &__edit {
+        @extend .profile__logout;
+        background-color: $primary;
+        color: $primary-light;
+        font-size: 1.2rem;
     }
 
     &__banner {
@@ -38,12 +65,18 @@
 
     &__welcome {
         color: $primary-dark;
-        font-size: 1.5rem;
+        font-size: .9rem;
+        font-weight: 400;
+        font-family: "ClashDisplay";
     }
 
-    &__date {
-        width: 15rem;
-        height: 15rem;
+    &__search {
+        margin-top: 0;
+    }
+
+    &__available {
+        @include flexbox($direction: column, $gap: 1rem);
+        padding: 1rem 0;    
     }
 
     &__game {
