@@ -1,0 +1,63 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+
+.loader{
+
+    &__container {
+        @include flexbox($direction: column, $justify: center, $align-items: center);
+        position: relative;
+        height: 100dvh;
+    }
+
+    &__heading {
+        color: $primary-light;
+        font-size: 2rem;
+        min-width: max-content;
+        margin-bottom: 1rem;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__bar {
+        @include flexbox($justify: space-between, $gap: 1.5rem);
+    }
+
+    &__circle {
+        background-color: $accent;
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        animation: loading .7s ease infinite;
+
+        &--one {
+            animation-delay: .3s;
+        }
+        &--two {
+            animation-delay: .4s;
+        }
+        &--three {
+            animation-delay: .5s;
+        }
+        &--four {
+            animation-delay: .6s;
+        }
+        &--five {
+            animation-delay: .7s;
+        }
+    }
+
+    @keyframes loading {
+        0% {
+            width: .7rem;
+            height: .7rem;
+        }
+
+        50% {
+            width: .5rem;
+            height: .5rem;
+        }
+    }
+}

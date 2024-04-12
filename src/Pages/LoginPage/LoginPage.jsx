@@ -8,7 +8,7 @@ import Button from "../../Components/Button/Button";
 const LoginPage = () => {
   const navigate = useNavigate();
   
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [Login, setLogin] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -30,9 +30,12 @@ const LoginPage = () => {
 
       sessionStorage.setItem("AuthToken", response.data.authToken);
 
-      // setIsLoggedIn(true);
+      setLogin(true);
+      navigate("/loading");
+      setTimeout(() => {
+        navigate("/profile");;
+      }, 2000);
 
-      navigate("/profile");
     } catch (error) {
       console.log(error)
       setError(error.response.data.error.message);

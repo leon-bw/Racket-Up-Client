@@ -6,6 +6,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import Loader from "./Components/Loader/Loader";
 // import MobileNav from "./Components/MobileNav/MobileNav";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/loading" element={<Loader />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/find-matches" element={<HomePage />} />
         </Routes>
