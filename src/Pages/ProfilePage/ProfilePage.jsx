@@ -16,38 +16,33 @@ import Level from "../../Components/Level/Level";
 import { useParams } from "react-router";
 
 const ProfilePage = () => {
-    const { profileId } = useParams();
+  const { profileId } = useParams();
   const [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
   const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(["10:00", "11:00"]);
+  const [time, setTime] = useState(["01:00", "23:00"]);
   const [level, setLevel] = useState("");
-  const [matches, setMatches] = useState(null)
-
-
+  const [matches, setMatches] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  
-
     const filters = {
-        level: level,
-        startTime: time[0],
-        endTime: time[1],
-        date:date
-    }
+      level: level,
+      startTime: time[0],
+      endTime: time[1],
+      date: date,
+    };
     try {
-        const { data } = await axios.post(`http://localhost:8080/api/matches/find-matches`, filters)
-
-        setMatches(data)
-
-    } catch (error) {
-        
-    }
-
-  }
-  
+      const { data } = await axios.post(
+        `http://localhost:8080/api/matches/find-matches`,
+        filters
+      );
+      setMatches(data.data);
+      console.log(data);
+      navigate("/find-matches", {state: {filteredMatches: data.data}})
+    } catch (error) {}
+  };
 
   useEffect(() => {
     const getProfile = async () => {
@@ -119,7 +114,10 @@ const ProfilePage = () => {
                 Welcome Back, {user.first_name} {user.last_name}!
               </h2>
               <Button className="profile__logout">
-                <FaArrowRightFromBracket className="profile__icon" onClick={handleLogout}/>
+                <FaArrowRightFromBracket
+                  className="profile__icon"
+                  onClick={handleLogout}
+                />
               </Button>
             </div>
             <section className="profile__sport">
@@ -130,7 +128,7 @@ const ProfilePage = () => {
               </Button>
             </section>
             <section className="profile__skill">
-              <Level setLevel={setLevel}/>
+              <Level setLevel={setLevel} />
             </section>
             <section className="profile__find-game">
               <h3 className="profile__heading">Search for availability</h3>
@@ -149,6 +147,51 @@ const ProfilePage = () => {
           </div>
         </div>
       </form>
+      <section>
+        <ul className="matches-list">
+          {matches &&
+            matches.map((match) => {
+              return (
+                <li className="matches-list__item" key={match.id}>
+                  <div className="matches-list__body">
+                    <div className="matches-list__details">
+                      <h3 className="matches-list__heading">Sport</h3>
+                      <p className="matches-list__name">{match.name}</p>
+                      <div className="matches-list__info">
+                        <h3 className="matches-list__heading">Location</h3>
+                        <p className="matches-list__text">{match.location}</p>
+                      </div>
+                      <div className="matches-list__info">
+                        <h3 className="matches-list__heading">Level</h3>
+                        <p className="matches-list__text">
+                          {match.skill_level}
+                        </p>
+                      </div>
+                      <div className="matches-list__info">
+                        <h3 className="matches-list__heading">Availability</h3>
+                        <p className="matches-list__text">
+                          {match.availability}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="matches-list__info">
+                      <h4 className="matches-list__heading">Players</h4>
+                      {!match.users[1] ? (
+                        <p>Looking for a game?</p>
+                      ) : (
+                        <p className="matches-list__text">
+                          {match.users[0].first_name} {match.users[0].last_name}{" "}
+                          <p className="matches-list__vs">VS</p>
+                          {match.users[1].first_name} {match.users[1].last_name}{" "}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+        </ul>
+      </section>
     </main>
   );
 };

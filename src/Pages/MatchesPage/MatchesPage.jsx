@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import "./MatchesPage.scss";
 import axios from "axios";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const MatchesPage = () => {
   const [matches, setMatches] = useState(null);
+
+  const location = useLocation();
 
   const getMatches = async () => {
     try {
@@ -12,9 +15,7 @@ const MatchesPage = () => {
         `http://localhost:8080/api/matches/find-matches`
       );
       setMatches(data.data);
-      if (!data.data.matches.users[1]) {
-        return "Looking for a game?"
-      }
+
       console.log(data.data);
     } catch (error) {
       console.log(error);
@@ -22,7 +23,12 @@ const MatchesPage = () => {
   };
 
   useEffect(() => {
-    getMatches();
+    if (location.state) {
+      setMatches(location.state.filteredMatches);
+    } // Read values passed on state
+    else {
+      getMatches();
+    }
   }, []);
 
   return (
@@ -63,10 +69,17 @@ const MatchesPage = () => {
                         </div>
                         <div className="matches-list__info">
                           <h4 className="matches-list__heading">Players</h4>
-                          <p className="matches-list__text">
-                            {match.users[0].first_name}{" "}
-                            {match.users[0].last_name} <p className="matches-list__vs">VS</p>
-                          </p>
+                          {!match.users[1] ? (
+                            <p>Looking for a game?</p>
+                          ) : (
+                            <p className="matches-list__text">
+                              {match.users[0].first_name}{" "}
+                              {match.users[0].last_name}{" "}
+                              <p className="matches-list__vs">VS</p>
+                              {match.users[1].first_name}{" "}
+                              {match.users[1].last_name}{" "}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </li>
