@@ -12,10 +12,11 @@ import "react-clock/dist/Clock.css";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
 import PlusMinus from "../../Components/PlusMinus/PlusMinus";
+import Loader from "../../Components/Loader/Loader";
 // import { useParams } from "react-router";
 
 const ProfilePage = () => {
-//   const { profileId } = useParams();  
+  //   const { profileId } = useParams();
   const [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -48,27 +49,34 @@ const ProfilePage = () => {
     getProfile();
   }, []);
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("AuthToken");
     setUser(null);
     setFailedAuth(true);
   };
 
   if (failedAuth) {
+    setTimeout(() => {
+      navigate("/");
+    }, 1800);
+
     return (
-      <main className="Profile">
-        <p>You must be logged in to see this page.</p>
-        <p>
-          <Link to="/login">Log in</Link>
-        </p>
+      <main className="profile">
+        <div className="profile__container">
+          <p className="profile__logged-out">
+            You have been logged out! You will be redirected to the Home Page
+          </p>
+        </div>
       </main>
     );
   }
 
   if (!user) {
     return (
-      <main className="Profile">
-        <p>Loading...</p>
+      <main className="profile">
+        <Loader />
       </main>
     );
   }
@@ -83,8 +91,8 @@ const ProfilePage = () => {
               <h2 className="profile__welcome">
                 Welcome Back, {user.first_name} {user.last_name}!
               </h2>
-              <Button className="profile__logout" onClick={handleLogout}>
-                <FaArrowRightFromBracket className="profile__icon" />
+              <Button className="profile__logout">
+                <FaArrowRightFromBracket className="profile__icon" onClick={handleLogout}/>
               </Button>
             </div>
             <section className="profile__sport">
@@ -97,7 +105,7 @@ const ProfilePage = () => {
             <section className="profile__skill">
               <h3 className="profile__heading">Skill Level: </h3>
               <h4 className="profile__skill-level">{user.skill_level}</h4>
-              
+
               <Button className="profile__edit">
                 <MdModeEdit />
               </Button>
@@ -110,7 +118,7 @@ const ProfilePage = () => {
                   <DatePicker onChange={setDate} value={date} />
                 </div>
                 <div className="profile__time">
-                <h4 className="profile__time-heading">Set Time</h4>
+                  <h4 className="profile__time-heading">Set Time</h4>
                   <TimeRangePicker onChange={setTime} value={time} />
                 </div>
               </section>
