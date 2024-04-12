@@ -7,6 +7,7 @@ import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import Loader from "./Components/Loader/Loader";
+import MatchesPage from "./Pages/MatchesPage/MatchesPage";
 // import MobileNav from "./Components/MobileNav/MobileNav";
 
 function App() {
@@ -21,8 +22,8 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/loading" element={<Loader />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/find-matches" element={<HomePage />} />
+          <Route path="/profile/" element={<ProfilePage />} />
+          <Route path="/find-matches" element={<MatchesPage />} />
         </Routes>
       </BrowserRouter>
     </>

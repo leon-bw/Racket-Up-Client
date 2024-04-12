@@ -7,9 +7,10 @@ import Button from "../../Components/Button/Button";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  
-  const [login, setLogin] = useState(false);
+
+  const [_login, setLogin] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ const LoginPage = () => {
     let formIsValid = true;
     const errors = {};
 
-    if(!e.target.username.value ) {
+    if (!e.target.username.value) {
       formIsValid = false;
       errors["username"] = "You must enter a valid username";
     }
@@ -30,7 +31,7 @@ const LoginPage = () => {
 
     if (!formIsValid) {
       setFormErrors(errors);
-      return
+      return;
     }
 
     try {
@@ -47,11 +48,10 @@ const LoginPage = () => {
       setLogin(true);
       navigate("/loading");
       setTimeout(() => {
-        navigate("/profile");;
+        navigate(`/profile`);
       }, 2000);
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError(error.response.data.error.message);
     }
   };
@@ -71,9 +71,9 @@ const LoginPage = () => {
             </p>
           </div>
           <form className="form" onSubmit={handleSubmit}>
-          {formErrors.username && (
-                <small className="form__error">{formErrors.username}</small>
-              )}
+            {formErrors.username && (
+              <small className="form__error">{formErrors.username}</small>
+            )}
             <Input
               className="form__field"
               type="text"
@@ -82,8 +82,8 @@ const LoginPage = () => {
               placeholder="Username"
             />
             {formErrors.password && (
-                <small className="form__error">{formErrors.password}</small>
-              )}
+              <small className="form__error">{formErrors.password}</small>
+            )}
             <Input
               className="form__field"
               type="password"

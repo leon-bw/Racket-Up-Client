@@ -1,0 +1,25 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.matches {
+
+    &__container {
+        @include container;
+        max-width: 60rem;
+        background-color: $secondary;
+    }
+
+    &__heading {
+        font-family: "ClashDisplay";
+    }
+
+    &-list {
+        padding: .5rem;
+    }
+
+    &-list__item {
+        @include container;
+        max-width: 60rem;
+        box-shadow: $shadow;
+    }
+}

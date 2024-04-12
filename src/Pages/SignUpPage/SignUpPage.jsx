@@ -19,8 +19,7 @@ const SignUpPage = () => {
         username: e.target.username.toLowerCase().value,
         password: e.target.password.value,
         sport: e.target.sport.value,
-        skill_level: e.target.skill_level.value,
-        role: "user",
+        skill_level: e.target.skill_level.value
       });
       navigate("/login");
 

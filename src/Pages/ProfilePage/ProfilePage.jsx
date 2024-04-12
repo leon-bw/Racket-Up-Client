@@ -11,16 +11,43 @@ import "@wojtekmaj/react-timerange-picker/dist/TimeRangePicker.css";
 import "react-clock/dist/Clock.css";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
 import { MdModeEdit } from "react-icons/md";
-import PlusMinus from "../../Components/PlusMinus/PlusMinus";
 import Loader from "../../Components/Loader/Loader";
-// import { useParams } from "react-router";
+import Level from "../../Components/Level/Level";
+import { useParams } from "react-router";
 
 const ProfilePage = () => {
-  //   const { profileId } = useParams();
+    const { profileId } = useParams();
   const [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(["10:00", "11:00"]);
+  const [level, setLevel] = useState("");
+  const [matches, setMatches] = useState(null)
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  
+
+    const filters = {
+        level: level,
+        startTime: time[0],
+        endTime: time[1],
+        date:date
+    }
+    try {
+        const { data } = await axios.post(`http://localhost:8080/api/matches/find-matches`, filters)
+
+        setMatches(data)
+
+    } catch (error) {
+        
+    }
+
+  }
+  
 
   useEffect(() => {
     const getProfile = async () => {
@@ -83,7 +110,7 @@ const ProfilePage = () => {
 
   return (
     <main>
-      <div className="profile">
+      <form className="profile" onSubmit={handleSubmit}>
         <div className="profile__container">
           <div className="profile__body">
             <div className="profile__banner">
@@ -103,12 +130,7 @@ const ProfilePage = () => {
               </Button>
             </section>
             <section className="profile__skill">
-              <h3 className="profile__heading">Skill Level: </h3>
-              <h4 className="profile__skill-level">{user.skill_level}</h4>
-
-              <Button className="profile__edit">
-                <MdModeEdit />
-              </Button>
+              <Level setLevel={setLevel}/>
             </section>
             <section className="profile__find-game">
               <h3 className="profile__heading">Search for availability</h3>
@@ -126,7 +148,7 @@ const ProfilePage = () => {
             </section>
           </div>
         </div>
-      </div>
+      </form>
     </main>
   );
 };
