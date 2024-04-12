@@ -71,7 +71,7 @@ const LoginPage = () => {
             <div className="login__control">
               <a className="login__forgot-password">Forgot Password ?</a>
             </div>
-            <Button>Login</Button>
+            <Button className="login__btn">Login</Button>
             {error && <div className="login__message">{error}</div>}
           </form>
         </div>

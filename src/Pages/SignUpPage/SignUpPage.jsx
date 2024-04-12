@@ -16,7 +16,7 @@ const SignUpPage = () => {
         first_name: e.target.first_name.value,
         last_name: e.target.last_name.value,
         email: e.target.email.value,
-        username: e.target.username.value,
+        username: e.target.username.toLowerCase().value,
         password: e.target.password.value,
         sport: e.target.sport.value,
         skill_level: e.target.skill_level.value,
@@ -76,8 +76,10 @@ const SignUpPage = () => {
             <select name="skill_level" id="skill_level">
               <option value="">Please select a skill level</option>
               <option value="1">Beginner</option>
-              <option value="2">Intermediate</option>
-              <option value="3">Advanced</option>
+              <option value="2">Good</option>
+              <option value="3">Intermediate</option>
+              <option value="4">Advanced</option>
+              <option value="5">Semi-Pro</option>
             </select>
             </section>
               <Button type="submit" className="form__btn">

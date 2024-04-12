@@ -35,6 +35,10 @@
 .form {
     width: 100%;
     margin-top: 2rem;
+
+    &__btn {
+        margin-top: 1rem;
+    }
 }
 
 .input__field {
@@ -44,8 +48,9 @@
     width: 100%;
     height: auto;
     padding: 0.75rem 1.25rem;
+    // border: 1px solid $primary;
     border: none;
     outline: none;
     border-radius: 10px;
-    
+    box-shadow: $shadow;
 }

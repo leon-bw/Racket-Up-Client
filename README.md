@@ -2,7 +2,7 @@
 
 ## Overview
 
-It is a platform to help connect individuals who want to meet up and play Tennis, Squash or Badminton. When a user signs up you you say what sports you're interested in, your skill level, location and times you're available to play or meet up for a game. You can add and chat with friends, who you play with regularly. Users can also add rating and reviews for tennis locations/venues
+It is a platform to help connect individuals who want to meet up and play Tennis, Squash or Badminton. When a user signs up you you say what sports you're interested in, your skill level, location and times you're available to play or meet up for a game. You can add and chat with friends, who you play with regularly. 
 
 ### Problem
 
@@ -101,3 +101,4 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 - Could have a feature that allows users to post photos about their games
 - An area in the profile for recommendations from users for users about equipment or training routines
 - Chat/Add: Add or speak with users/friends before or after a game to arrange a time
+- Users can also add rating and reviews for tennis locations/venues

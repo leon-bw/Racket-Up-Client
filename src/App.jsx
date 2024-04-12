@@ -6,11 +6,13 @@ import HomePage from "./Pages/HomePage/HomePage";
 import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+// import MobileNav from "./Components/MobileNav/MobileNav";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      {/* <MobileNav /> */}
         <NavigationDesktop />
         <NavigationMobile />
         <Routes>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/find-matches" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </>

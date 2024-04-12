@@ -5,8 +5,8 @@ import { MdOutlineExpandMore } from "react-icons/md";
 
 export const links = [
   {
-    title: "Find Players",
-    href: "#",
+    title: "Find Matches",
+    href: "/find-matches",
     Icon: MdPersonSearch,
   },
   {
