@@ -8,16 +8,30 @@ import Button from "../../Components/Button/Button";
 const LoginPage = () => {
   const navigate = useNavigate();
   
-  const [Login, setLogin] = useState(false);
-  const [error, setError] = useState("");
+  const [login, setLogin] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(!e.target.username.value || !e.target.password.value) {
-      // Todo show a message to user
+    setFormErrors({});
+    let formIsValid = true;
+    const errors = {};
+
+    if(!e.target.username.value ) {
+      formIsValid = false;
+      errors["username"] = "You must enter a valid username";
+    }
+
+    if (!e.target.password.value) {
+      formIsValid = false;
+      errors["password"] = "You must enter a password";
+    }
+
+    if (!formIsValid) {
+      setFormErrors(errors);
       return
-    } 
+    }
 
     try {
       const response = await axios.post(
@@ -57,6 +71,9 @@ const LoginPage = () => {
             </p>
           </div>
           <form className="form" onSubmit={handleSubmit}>
+          {formErrors.username && (
+                <small className="form__error">{formErrors.username}</small>
+              )}
             <Input
               className="form__field"
               type="text"
@@ -64,6 +81,9 @@ const LoginPage = () => {
               label="Username"
               placeholder="Username"
             />
+            {formErrors.password && (
+                <small className="form__error">{formErrors.password}</small>
+              )}
             <Input
               className="form__field"
               type="password"
@@ -75,7 +95,6 @@ const LoginPage = () => {
               <a className="login__forgot-password">Forgot Password ?</a>
             </div>
             <Button className="login__btn">Login</Button>
-            {error && <div className="login__message">{error}</div>}
           </form>
         </div>
       </section>
