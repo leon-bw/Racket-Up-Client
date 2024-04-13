@@ -1,0 +1,64 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.steps {
+
+    &__container {
+        max-width: 80rem;
+        width: 100%;
+        margin: auto;
+        padding: 0 1rem;
+        @include desktop {
+            @include flexbox($direction: column, $align-items: center);
+        }
+    }
+
+    &__connect {
+        @include tablet {
+            @include flexbox($gap: 1.5rem, $align-items: flex-end);
+        }
+
+        @include desktop {
+            @include flexbox($align-items: center);
+        }
+    }
+    
+    &__connect-heading {
+        font-family: "ClashDisplay";
+        color: $primary-light;
+        font-weight: 600;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    &__btn {
+        @include border-btn;
+        width: 50%;
+    }
+
+    &__line {
+        height: 10rem;
+        width: .2rem;
+        background-color: $primary-light;
+        display: none;
+    }
+}
+
+.list {
+    border-left: 6px solid $primary-light;
+    padding-left: 2rem;
+    margin: 4rem 0;
+
+    &__step-item {
+        margin: 3rem 0;
+    }
+
+    &__heading {
+        color: $primary-light;
+    }
+
+    &__text {
+        color: $primary-light;
+    }
+
+}

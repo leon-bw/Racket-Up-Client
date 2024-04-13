@@ -4,6 +4,12 @@
   filter: invert(90%) sepia(3%) saturate(233%) hue-rotate(323deg) brightness(108%) contrast(96%);
 }
 
+@mixin border-btn {
+  background-color: $primary-dark;
+  border: 1px solid $accent;
+  color: $primary-light;
+}
+
 @mixin container {
   background-color: $primary-light;
   max-width: 35rem;
