@@ -5,14 +5,14 @@ import { MdOutlineExpandMore } from "react-icons/md";
 
 export const links = [
   {
+    title: "Home",
+    href: "/",
+    Icon: SlCalender,
+  },
+  {
     title: "Find Matches",
     href: "/find-matches",
     Icon: MdPersonSearch,
-  },
-  {
-    title: "Book Courts",
-    href: "#",
-    Icon: SlCalender,
   },
   {
     title: "Events",

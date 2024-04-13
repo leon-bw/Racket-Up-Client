@@ -1,0 +1,68 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.hero {
+
+    &__container {
+        max-width: 80rem;
+        width: 100%;
+        margin: auto;
+
+        @include tablet {
+            @include flexbox();
+        }
+    }
+
+    &__body {
+        padding: 0 1rem;
+
+        @include tablet {
+            width: 50%;
+            margin: auto;
+        }
+    }
+
+    &__heading {
+        color: $primary-light;
+        font-size: 2.2rem;
+        font-family: "ClashDisplay";
+        font-weight: 600;
+    }
+
+    &__subheading {
+        color: $primary-light;
+        font-weight: 400;
+    }
+
+    &__img {
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        object-fit: cover;
+        object-position: 50% 50%;
+
+        @include tablet {
+            height: 35rem;
+        }
+    }
+
+    &__btns {
+        @include flexbox($gap: 1rem);
+        margin: 1.5rem 0;
+    }
+
+    &__learn {
+        background-color: $primary-dark;
+        border: 1px solid $accent;
+        color: $primary-light;
+        width: 50%;
+    }
+
+    &__join {
+        width: 8rem;
+    }
+}

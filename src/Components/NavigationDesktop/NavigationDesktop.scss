@@ -4,7 +4,8 @@
 .navigation {
     
     &__container {
-        @include flexbox($align-items: center);
+        @include flexbox($align-items: cente, $justify: space-between);
+        border-bottom: 1px solid $primary-light;
     }
 
     &__link {
@@ -17,7 +18,8 @@
         @include desktop{
             @include flexbox($align-items: center);
             margin-top: .5rem;
-            border-bottom: 1px solid $primary-light;
+            max-width: 80rem;
+            margin: 0 auto;
         }
     }
 
@@ -25,5 +27,9 @@
         @include desktop {
             display: none;
         }
+    }
+
+    &__btns {
+        @include flexbox($direction: row);
     }
 }
