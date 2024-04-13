@@ -32,7 +32,7 @@
     }
 
     &__btn {
-        @include border-btn;
+        @include hollow-btn;
         width: 50%;
     }
 
@@ -46,6 +46,7 @@
 
 .list {
     border-left: 6px solid $primary-light;
+    border-radius: .65rem;
     padding-left: 2rem;
     margin: 4rem 0;
 
@@ -53,12 +54,8 @@
         margin: 3rem 0;
     }
 
-    &__heading {
-        color: $primary-light;
-    }
-
+    &__heading,
     &__text {
         color: $primary-light;
     }
-
 }

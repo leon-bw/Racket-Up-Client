@@ -1,6 +1,5 @@
-import Button from "../Button/Button";
-import { Link } from "react-router-dom";
 import "./Steps.scss";
+import Anchor from "../Anchor/Anchor";
 
 const Steps = () => {
   return (
@@ -10,7 +9,7 @@ const Steps = () => {
           <h2 className="steps__connect-heading">
             Find and Connect with Other Players for a game
           </h2>
-          <Button className="steps__btn">Get Started</Button>
+          <Anchor route={"/signup"} className="steps__btn">Get Started</Anchor>
         </section>
         <ul className="list">
           <li className="list__step-item">

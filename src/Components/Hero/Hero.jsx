@@ -1,6 +1,5 @@
-import Button from "../Button/Button";
 import court from "../../assets/images/court-overhead-unsplash.jpg";
-import { Link } from "react-router-dom";
+import Anchor from "../Anchor/Anchor";
 import "./Hero.scss";
 
 const Hero = () => {
@@ -16,10 +15,8 @@ const Hero = () => {
             game. Join our community today!
           </h4>
           <div className="hero__btns">
-          <Link to="/signup">
-            <Button className="hero__join">Join</Button>
-          </Link>
-          <Button className="hero__learn">Learn More</Button>
+          <Anchor route="/signup" className="hero__join">Join</Anchor>
+          <Anchor className="hero__learn">Learn More</Anchor>
           </div>
         </div>
         <div className="hero__img">

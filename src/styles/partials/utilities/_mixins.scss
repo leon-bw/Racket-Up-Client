@@ -4,10 +4,25 @@
   filter: invert(90%) sepia(3%) saturate(233%) hue-rotate(323deg) brightness(108%) contrast(96%);
 }
 
-@mixin border-btn {
+@mixin hollow-btn {
   background-color: $primary-dark;
-  border: 1px solid $accent;
+  border: 2px solid $accent;
   color: $primary-light;
+  text-align: center;
+}
+
+@mixin filled-btn {
+  background-color: $accent;
+  color: $primary-dark;
+  border-radius: 10px;
+  border: none;
+  padding: 0.85rem 1.25rem;
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: $shadow;
+  cursor: pointer;
 }
 
 @mixin container {
@@ -22,41 +37,41 @@
 }
 
 @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-      @content;
-    }
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
   }
+}
   
-  @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-      @content;
-    }
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
   }
+}
   
-  @mixin mobile {
-    @media screen and (min-width: $mobile-breakpoint) {
-      @content;
-    }
+@mixin mobile {
+  @media screen and (min-width: $mobile-breakpoint) {
+    @content;
   }
+}
   
-  @mixin flexbox($display: flex, $direction: null, $wrap: null, $justify: null, $align-items: null, $align-content: null, $gap: null) {
-    display: $display;
-    @if $direction != null {
-      flex-direction: $direction;
-    }
-    @if $wrap != null {
-      flex-wrap: $wrap;
-    }
-    @if $justify != null {
-      justify-content: $justify;
-    }
-    @if $align-items != null {
-      align-items: $align-items;
-    }
-    @if $align-content != null {
-      align-content: $align-content;
-    }
-    @if $gap != null {
-      gap: $gap;
-    }
+@mixin flexbox($display: flex, $direction: null, $wrap: null, $justify: null, $align-items: null, $align-content: null, $gap: null) {
+  display: $display;
+  @if $direction != null {
+    flex-direction: $direction;
   }
+  @if $wrap != null {
+    flex-wrap: $wrap;
+  }
+  @if $justify != null {
+    justify-content: $justify;
+  }
+  @if $align-items != null {
+    align-items: $align-items;
+  }
+  @if $align-content != null {
+    align-content: $align-content;
+  }
+  @if $gap != null {
+    gap: $gap;
+  }
+}

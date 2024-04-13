@@ -57,7 +57,7 @@
     }
 
     &__learn {
-        @include border-btn;
+        @include hollow-btn;
         width: 50%;
     }
 
