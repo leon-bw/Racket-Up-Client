@@ -1,27 +1,21 @@
-import { MdPersonSearch } from "react-icons/md";
-import { SlCalender } from "react-icons/sl";
-import { MdEmojiEvents } from "react-icons/md";
-import { MdOutlineExpandMore } from "react-icons/md";
+import { MdOutlineSportsTennis } from "react-icons/md";
+import { MdHome } from "react-icons/md";
+import { FaCircleUser } from "react-icons/fa6";
 
 export const links = [
   {
     title: "Home",
     href: "/",
-    Icon: SlCalender,
+    Icon: MdHome,
   },
   {
     title: "Find Matches",
     href: "/find-matches",
-    Icon: MdPersonSearch,
+    Icon: MdOutlineSportsTennis,
   },
   {
-    title: "Events",
-    href: "#",
-    Icon: MdEmojiEvents,
-  },
-  {
-    title: "More",
-    href: "#",
-    Icon: MdOutlineExpandMore,
-  },
+    title: "My Profile",
+    href: "/profile",
+    Icon: FaCircleUser,
+  }
 ];

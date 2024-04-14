@@ -29,6 +29,7 @@
         font-weight: 600;
         font-size: 2rem;
         margin: 3rem 0;
+        line-height: 1.5;
     }
 
     &__btn {
@@ -57,5 +58,6 @@
     &__heading,
     &__text {
         color: $primary-light;
+        line-height: 1.3;
     }
 }

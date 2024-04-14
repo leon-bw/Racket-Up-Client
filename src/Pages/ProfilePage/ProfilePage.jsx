@@ -120,6 +120,7 @@ const ProfilePage = () => {
                 />
               </Button>
             </div>
+            <div className="profile__header">
             <section className="profile__sport">
               <h3 className="profile__heading">Sport: </h3>
               <h4 className="profile__chosen-sport">{user.sport}</h4>
@@ -128,8 +129,10 @@ const ProfilePage = () => {
               </Button>
             </section>
             <section className="profile__skill">
+              <h3 className="profile__heading">Skill Level:</h3>
               <Level setLevel={setLevel} />
             </section>
+            </div>
             <section className="profile__find-game">
               <h3 className="profile__heading">Search for availability</h3>
               <section className="profile__available">
