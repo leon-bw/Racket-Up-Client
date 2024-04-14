@@ -5,8 +5,12 @@
 .loader{
 
     &__container {
-        @include flexbox($direction: column, $justify: center, $align-items: center);
-        position: relative;
+        display: grid; 
+        padding-left: 1rem;
+        padding-right: 1rem; 
+        padding-top: 6rem;
+        padding-bottom: 6rem; 
+        place-content: center; 
         height: 100dvh;
     }
 
@@ -22,43 +26,14 @@
         transform: translate(-50%, -50%);
     }
 
+    &__item {
+        width: 2rem; 
+        height: 5rem; 
+        background-color: $primary-light; 
+    }
+
     &__bar {
-        @include flexbox($justify: space-between, $gap: 1.5rem);
-    }
-
-    &__circle {
-        background-color: $accent;
-        width: .7rem;
-        height: .7rem;
-        border-radius: 50%;
-        animation: loading .7s ease infinite;
-
-        &--one {
-            animation-delay: .3s;
-        }
-        &--two {
-            animation-delay: .4s;
-        }
-        &--three {
-            animation-delay: .5s;
-        }
-        &--four {
-            animation-delay: .6s;
-        }
-        &--five {
-            animation-delay: .7s;
-        }
-    }
-
-    @keyframes loading {
-        0% {
-            width: .7rem;
-            height: .7rem;
-        }
-
-        50% {
-            width: .5rem;
-            height: .5rem;
-        }
+        @include flexbox();
+        gap: 1rem;
     }
 }
