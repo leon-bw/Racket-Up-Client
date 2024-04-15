@@ -8,13 +8,11 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import Loader from "./Components/Loader/Loader";
 import MatchesPage from "./Pages/MatchesPage/MatchesPage";
-// import MobileNav from "./Components/MobileNav/MobileNav";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      {/* <MobileNav /> */}
         <NavigationDesktop />
         <NavigationMobile />
         <Routes>

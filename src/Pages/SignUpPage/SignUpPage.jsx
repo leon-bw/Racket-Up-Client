@@ -8,6 +8,7 @@ import Button from "../../Components/Button/Button";
 const SignUpPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,13 +17,18 @@ const SignUpPage = () => {
         first_name: e.target.first_name.value,
         last_name: e.target.last_name.value,
         email: e.target.email.value,
-        username: e.target.username.toLowerCase().value,
+        username: e.target.username.value.toLowerCase(),
         password: e.target.password.value,
         sport: e.target.sport.value,
         skill_level: e.target.skill_level.value
       });
-      navigate("/login");
 
+      setSuccessMessage("Signup successful! You can now log in.");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2500);
+  
     } catch (error) {
       e.target.reset();
       setError(error.response.data.error.message);
@@ -39,6 +45,7 @@ const SignUpPage = () => {
           </p>
         </div>
         <div className="signup__container">
+        {successMessage && <p className="signup__success">{successMessage}</p>}
           <form action="" className="form" onSubmit={handleSubmit}>
             <Input
               type="text"
@@ -74,17 +81,16 @@ const SignUpPage = () => {
             <section className="signup__skill">
             <select name="skill_level" id="skill_level">
               <option value="">Please select a skill level</option>
-              <option value="1">Beginner</option>
-              <option value="2">Good</option>
-              <option value="3">Intermediate</option>
-              <option value="4">Advanced</option>
-              <option value="5">Semi-Pro</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Good">Good</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Semi-Pro">Semi-Pro</option>
             </select>
             </section>
-              <Button type="submit" className="form__btn">
+              <Button className="form__btn">
                 Sign Up
               </Button>
-            <p>{error}</p>
           </form>
         </div>
         <p className="signup__switch-page">

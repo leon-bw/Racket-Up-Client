@@ -34,7 +34,7 @@
         @include flexbox($justify: space-between, $align-items: center);
         @extend .profile__find-game;
         background-color: $primary-dark;
-        width: 30rem;
+        max-width: 43rem;
     }
 
     &__chosen-sport,
@@ -45,7 +45,8 @@
 
     &__header {
         @include tablet {
-            @include flexbox($direction: row);
+            @include flexbox($direction: row, $gap: 2rem);
+
         }
     }
 
@@ -78,6 +79,9 @@
         background-color: $primary;
         color: $primary-light;
         font-size: 1.2rem;
+        padding: .5rem;
+        border: none;
+        border-radius: .62rem;
     }
 
     &__banner {
@@ -90,6 +94,46 @@
         font-weight: 400;
         font-family: "ClashDisplay";
     }
+
+    &__modal {
+        @include flexbox($align-items: center, $justify: center, $direction: column, $gap: 3rem);
+        margin: 5rem auto;
+        border-radius: .62rem;
+        padding: 3rem;
+        background-color: $primary;
+        height: 30rem;
+        max-width: 30rem;
+
+        &-heading {
+            color: $primary-light;
+            font-family: "ClashDisplay";
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1.7rem;
+            text-align: center;
+        }
+
+        &-sport {
+            background-color: $primary-dark;
+            color: $primary-light;
+            padding: 1rem;
+            border-radius: .62rem;
+            border: none;
+            width: 60%;
+        }
+    }
+
+    &__update {
+        background-color: $grass;
+        color: $primary-light;
+    }
+
+    &__cancel {
+        background-color: $error;
+        border-radius: 2px solid $error;
+        color: $primary-light;
+    }
+
 
     &__search {
         margin-top: 0;
@@ -105,4 +149,8 @@
         color: $primary-light;
     }
 
+}
+
+#skill_level {
+    background-color: $primary-light;
 }

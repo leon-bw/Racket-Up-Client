@@ -16,7 +16,7 @@ const Hero = () => {
           </h4>
           <div className="hero__btns">
           <Anchor route="/signup" className="hero__join">Join</Anchor>
-          <Anchor className="hero__learn">Learn More</Anchor>
+          <Anchor route="/#steps" className="hero__learn">Learn More</Anchor>
           </div>
         </div>
         <div className="hero__img">

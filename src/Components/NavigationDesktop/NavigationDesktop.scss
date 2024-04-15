@@ -4,7 +4,7 @@
 .navigation {
     
     &__container {
-        @include flexbox($align-items: cente, $justify: space-between);
+        @include flexbox($align-items: center, $justify: space-between);
         border-bottom: 1px solid $primary-light;
     }
 
@@ -12,13 +12,17 @@
         gap: 1rem;
     }
 
+    &__bar {
+        @include flexbox($align-items: center, $justify: space-between);
+    }
+
     &--desktop{
         display: none;
         
         @include desktop{
-            @include flexbox($align-items: center);
-            margin-top: .5rem;
+            @include flexbox($align-items: center, $justify: space-between);
             max-width: 80rem;
+            margin-top: 1rem;
             margin: 0 auto;
         }
     }
@@ -29,7 +33,8 @@
         }
     }
 
-    &__btns {
-        @include flexbox($direction: row);
+    &__signup {
+        @include hollow-btn;
     }
+
 }

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Modal from "react-modal";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProfilePage.scss";
@@ -22,7 +23,11 @@ const ProfilePage = () => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(["01:00", "23:00"]);
   const [level, setLevel] = useState("");
+  const [sport, setSport] = useState("");
   const [matches, setMatches] = useState(null);
+  const [error, setError] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [newSport, setNewSport] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,8 +45,24 @@ const ProfilePage = () => {
       );
       setMatches(data.data);
       console.log(data);
-      navigate("/find-matches", {state: {filteredMatches: data.data}})
+      navigate("/find-matches", { state: { filteredMatches: data.data } });
     } catch (error) {}
+  };
+
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      const userId = user.id;
+      const { data } = await axios.patch(
+        `http://localhost:8080/profile/${userId}`,
+        { sport }
+      );
+      setUser({ ...user, sport: data.sport });
+      setSport(data.data);
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data.error);
+    }
   };
 
   useEffect(() => {
@@ -72,6 +93,24 @@ const ProfilePage = () => {
   }, []);
 
   const navigate = useNavigate();
+
+  const openModal = (e) => {
+    e.preventDefault();
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleSportChange = (e) => {
+    setNewSport(e.target.value);
+  };
+
+  const handleUpdateSport = () => {
+    handleUpdate();
+    closeModal();
+  };
 
   const handleLogout = () => {
     sessionStorage.removeItem("AuthToken");
@@ -121,17 +160,29 @@ const ProfilePage = () => {
               </Button>
             </div>
             <div className="profile__header">
-            <section className="profile__sport">
-              <h3 className="profile__heading">Sport: </h3>
-              <h4 className="profile__chosen-sport">{user.sport}</h4>
-              <Button className="profile__edit">
-                <MdModeEdit />
-              </Button>
-            </section>
-            <section className="profile__skill">
-              <h3 className="profile__heading">Skill Level:</h3>
-              <Level setLevel={setLevel} />
-            </section>
+              <section className="profile__sport">
+                <h3 className="profile__heading">Sport: </h3>
+                <h4 className="profile__chosen-sport">{user.sport}</h4>
+                <button className="profile__edit" onClick={openModal}>
+                  <MdModeEdit />
+                </button>
+                <Modal ariaHideApp={false} className="profile__modal" isOpen={isOpen} onRequestClose={closeModal}>
+                  <h3 className="profile__modal-heading">Change Sport</h3>
+                  <input
+                    className="profile__modal-sport"
+                    type="text"
+                    placeholder="Enter new sport"
+                    value={newSport}
+                    onChange={handleSportChange}
+                  />
+                  <Button className="profile__update" onClick={handleUpdateSport}>Update Sport</Button>
+                  <Button  className="profile__cancel" onClick={closeModal}>Cancel</Button>
+                </Modal>
+              </section>
+              <section className="profile__skill">
+                <h3 className="profile__heading">Skill Level:</h3>
+                <Level className="profile__level" setLevel={setLevel} />
+              </section>
             </div>
             <section className="profile__find-game">
               <h3 className="profile__heading">Search for availability</h3>
@@ -159,7 +210,9 @@ const ProfilePage = () => {
                   <div className="matches-list__body">
                     <div className="matches-list__details">
                       <h3 className="matches-list__heading">Sport</h3>
-                      <p className="matches-list__name">{match.name}</p>
+                      <p className="matches-list__name">
+                        {match.users[0].sport}
+                      </p>
                       <div className="matches-list__info">
                         <h3 className="matches-list__heading">Location</h3>
                         <p className="matches-list__text">{match.location}</p>
@@ -184,8 +237,8 @@ const ProfilePage = () => {
                       ) : (
                         <p className="matches-list__text">
                           {match.users[0].first_name} {match.users[0].last_name}{" "}
-                          <p className="matches-list__vs">VS</p>
-                          {match.users[1].first_name} {match.users[1].last_name}{" "}
+                          VS {match.users[1].first_name}{" "}
+                          {match.users[1].last_name}{" "}
                         </p>
                       )}
                     </div>

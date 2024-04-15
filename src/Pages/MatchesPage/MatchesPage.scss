@@ -22,4 +22,8 @@
         max-width: 60rem;
         box-shadow: $shadow;
     }
+
+    &-list__details {
+        @include flexbox($align-items: center, $justify: space-between);
+    }
 }

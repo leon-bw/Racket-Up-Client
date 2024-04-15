@@ -2,6 +2,11 @@
 @use "./styles/partials/utilities/variables" as *;
 
 body {
-    background: linear-gradient(180deg, rgba(32,32,32,1) 10%, rgba(51,53,51,1) 90%);
-    height: 100dvh;
+  //   background: radial-gradient(
+  //     circle,
+  //     rgba(32, 32, 32, 1) 10%,
+  //     rgba(51, 53, 51, 1) 90%
+  //   );
+  background: $primary-dark;
+  height: 100dvh;
 }

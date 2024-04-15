@@ -2,7 +2,7 @@
 
 ## Overview
 
-It is a platform to help connect individuals who want to meet up and play Tennis, Squash or Badminton. When a user signs up you you say what sports you're interested in, your skill level, location and times you're available to play or meet up for a game. You can add and chat with friends, who you play with regularly. 
+It is a platform to help connect individuals who want to meet up and play Tennis, Squash or Badminton. When a user signs up you you say what sports you're interested in, your skill level, location and times you're available to play or meet up for a game.
 
 ### Problem
 
@@ -20,8 +20,7 @@ A user should
 
 - Sign Up: with Email/username Password form
 - Log in to profile, add skill level, times available to play
-- Search on Map to find locals sports clubs/ venues and also search for fellow Racket Up users in proximity
-- Be able to leave a short review on venue/sport clubs
+- Search to find locals sports clubs/ venues with fellow Racket Up users
 
 
 ## Implementation
@@ -43,8 +42,7 @@ List technologies that will be used in your app, including any libraries to save
 
 ### APIs
 
-- Maps API to find local clubs for Tennis, Squash or Badminton OR Long/Lat to determine location data
-- Possibly Random user API or Faker to simulate users on the platform
+- Possibly Random user API or Faker to simulate users on the platform, or generate users myself
 
 ### Sitemap
 
@@ -52,7 +50,6 @@ List technologies that will be used in your app, including any libraries to save
 - Sign Up Page
 - Profile page
 - Find a game/venues
-- Chat Page
 
 ### Mockups
 
@@ -77,11 +74,10 @@ Data Relationship
 - Log in /login
 - profile /user1234
 - Find a game /search-game
-- Find a court /search-court
 
 ### Auth
 
-Users will log in, with a username/email and password and once logged in will see a user profile specific to themselves, selected racket sport, skill level and timetable with available times selected
+Users will log in, with a username and password and once logged in will see a user profile specific to themselves, selected racket sport, skill level and calendar and time to search for   available games 
 
 ## Roadmap
 
@@ -93,7 +89,7 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
     - Profile Page
 
 - Develop user random api/fake to simulate data and use routing to connect frontend and see
-- Work on frontend features a user will do such as finding a local court, finding someone who is available to play, or at the same skill level, leaving a review of a court/venue
+- Work on frontend features a user will do such as finding a game, finding someone who is available to play, or at the same skill level, leaving a review of a court/venue
 
 
 ## Nice-to-haves

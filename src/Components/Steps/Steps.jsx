@@ -11,7 +11,7 @@ const Steps = () => {
           </h2>
           <Anchor route={"/signup"} className="steps__btn">Get Started</Anchor>
         </section>
-        <ul className="list">
+        <ul className="list" id="steps">
           <li className="list__step-item">
             <h3 className="list__heading">Step One</h3>
             <p className="list__text">

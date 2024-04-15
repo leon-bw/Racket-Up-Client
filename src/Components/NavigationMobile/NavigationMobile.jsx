@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { links } from "../Links/Links";
 import "./NavigationMobile.scss";
 import Branding from "../Branding/Branding";
-import { Link } from "react-router-dom";
 
 const NavigationMobile = () => {
   const [isOpen, setOpen] = useState(false);
@@ -65,28 +64,26 @@ const NavigationMobile = () => {
                 onClick={() => setOpen((prev) => !prev)}
                 className="navigation__btns"
               >
-                <Link to="/signup">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{
-                      scale: 0.9,
-                      backgroundColor: ["#F3B416"],
-                      color: ["#202C39"],
-                    }}
-                    className="navigation__btn navigation__btn--signup"
-                  >
-                    Sign Up
-                  </motion.a>
-                </Link>
-                <Link to="/login">
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.9, backgroundColor: ["#F3B416"] }}
-                    className="navigation__btn navigation__btn--login"
-                  >
-                    Login
-                  </motion.a>
-                </Link>
+                <motion.a
+                  href="/signup"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{
+                    scale: 0.9,
+                    backgroundColor: ["#FAFDFA"],
+                    color: ["#202020"],
+                  }}
+                  className="navigation__btn navigation__btn--signup"
+                >
+                  Sign Up
+                </motion.a>
+                <motion.a
+                  href="/login"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.9, backgroundColor: ["#FFD100"] }}
+                  className="navigation__btn navigation__btn--login"
+                >
+                  Login
+                </motion.a>
               </motion.div>
             </ul>
           </motion.div>

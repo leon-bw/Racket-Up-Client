@@ -25,8 +25,7 @@ const MatchesPage = () => {
   useEffect(() => {
     if (location.state) {
       setMatches(location.state.filteredMatches);
-    } // Read values passed on state
-    else {
+    } else {
       getMatches();
     }
   }, []);
@@ -45,7 +44,7 @@ const MatchesPage = () => {
                       <div className="matches-list__body">
                         <div className="matches-list__details">
                           <h3 className="matches-list__heading">Sport</h3>
-                          <p className="matches-list__name">{match.name}</p>
+                          <p className="matches-list__name">{match.users[0].sport}</p>
                           <div className="matches-list__info">
                             <h3 className="matches-list__heading">Location</h3>
                             <p className="matches-list__text">
@@ -74,8 +73,9 @@ const MatchesPage = () => {
                           ) : (
                             <p className="matches-list__text">
                               {match.users[0].first_name}{" "}
-                              {match.users[0].last_name}{" "}
-                              <p className="matches-list__vs">VS</p>
+                              {match.users[0].last_name}
+                              {" "}
+                              VS {" "}
                               {match.users[1].first_name}{" "}
                               {match.users[1].last_name}{" "}
                             </p>
