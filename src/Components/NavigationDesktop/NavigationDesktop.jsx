@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import "./NavigationDesktop.scss";
 import { links } from "../Links/Links";
 import Branding from "../Branding/Branding";
@@ -12,7 +11,6 @@ const NavigationDesktop = () => {
           <div className="navigation__bar">
           <div className="navigation__branding">
           <Branding />
-          </div>
           <ul className="navigation__menu">
             {links.map((link) => {
               const { Icon, href, title } = link;
@@ -25,11 +23,12 @@ const NavigationDesktop = () => {
                 </li>
               );
             })}
-          </ul>
-          </div>
           <div className="navigation__btns">
             <Anchor className="navigation__signup" route={"/signup"}>Sign Up</Anchor>
             <Anchor route={"/login"} >Log In</Anchor>
+          </div>
+          </ul>
+            </div>
           </div>
         </div>
       </nav>

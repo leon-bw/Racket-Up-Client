@@ -1,0 +1,54 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.modal {
+  @include flexbox($align-items: center, $justify: center);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+
+  &__container {
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: $primary-light;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+
+    &--show {
+      --transform-scale-x: 1;
+      --transform-scale-y: 1;
+      opacity: 1;
+    }
+
+    &--hide {
+      --transform-scale-x: 1.25;
+      --transform-scale-y: 1.25;
+      opacity: 0;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    color: $secondary;
+    background-color: $primary-light;
+    color: $accent;
+    font-weight: 700;
+    font-family: "ClashDisplay";
+
+    &:hover {
+      color: $error;
+    }
+  }
+}

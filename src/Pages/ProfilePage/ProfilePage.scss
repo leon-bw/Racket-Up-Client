@@ -60,6 +60,13 @@
         @extend .profile__sport;
     }
 
+    &__location {
+        @extend .profile__sport;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
     &__logout {
         width: 2rem;
         padding: .2rem;

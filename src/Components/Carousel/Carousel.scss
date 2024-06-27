@@ -22,7 +22,7 @@
   }
 }
 
-.horizontalscroll {
+.horizontal {
   position: relative;
   height: 300vh;
 
@@ -36,52 +36,5 @@
 
   &__card {
     @include flexbox($gap: 2rem);
-  }
-}
-
-.card {
-  overflow: hidden;
-  position: relative;
-  height: 30rem;
-  width: 30rem;
-  background-color: $primary;
-  border-radius: 0.62rem;
-
-  &__movement {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    transition-property: transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-    transition-duration: 300ms;
-  }
-
-  &__grid {
-    display: grid;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    place-content: center;
-  }
-
-  &__heading {
-    padding: 2rem;
-    font-size: 1.7rem;
-    line-height: 1;
-    font-weight: 900;
-    color: $primary-light;
-    text-transform: uppercase;
-    background: (
-        rgba(0, 0, 0, 0) 10%
-      );
-    backdrop-filter: blur(16px);
-    border-radius: 0.62rem;
   }
 }

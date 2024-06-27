@@ -8,6 +8,8 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import Loader from "./Components/Loader/Loader";
 import MatchesPage from "./Pages/MatchesPage/MatchesPage";
+import GamePage from "./Pages/GamePage/GamePage";
+
 
 function App() {
   return (
@@ -21,7 +23,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/loading" element={<Loader />} />
           <Route path="/profile/" element={<ProfilePage />} />
-          <Route path="/find-matches" element={<MatchesPage />} />
+          <Route path="/matches" element={<MatchesPage />} />
+          <Route path="/join" element={<GamePage />} />
         </Routes>
       </BrowserRouter>
     </>

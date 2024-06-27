@@ -1,0 +1,85 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.game {
+
+    &__container {
+        padding: 2rem;
+    }
+
+    &__heading {
+        color: $primary-light;
+        font-family: "ClashDisplay";
+        font-weight: 600;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    &__header {
+        color: $primary-light;
+        margin: 3rem 0;
+    }
+
+    &__court {
+        @include flexbox($direction: column);
+        border: 8px solid $primary-light;
+
+        &-half {
+            padding: .5rem 1rem;
+            margin: 0 2rem;
+            border-left: 8px solid $primary-light;
+            border-right: 8px solid $primary-light;
+        }
+
+        &-player {
+            background-color: $primary;
+            color: $primary-light;
+            padding: .5rem;
+            border-radius: .62rem;
+            text-align: center;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        &-divider {
+            background-image: url(../../assets/images/netting.svg);
+            background-size: 5rem;
+            border-left: 8px solid $grass;
+            border-right: 8px solid $grass;
+            background-color: $primary-light;
+            height: 1.5rem;
+        }
+    }
+}
+
+
+
+.player {
+    @include flexbox($align-items: center, $justify: center, $gap: 1rem);
+    height: 6rem;
+
+    &__avatar {
+        border-radius: 50%;
+        background-color: $highlight;
+        color: $primary-dark;
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: .5rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    &__name {
+        margin-bottom: 1rem;
+    }
+
+    &__details {
+        font-weight: 600;
+        font-family: "ClashDisplay";
+    }
+
+    &__icon {
+        color: $primary-light;
+        font-size: 2rem;
+    }
+}

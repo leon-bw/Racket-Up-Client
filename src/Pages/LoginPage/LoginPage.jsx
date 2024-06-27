@@ -6,14 +6,28 @@ import "./LoginPage.scss";
 import Button from "../../Components/Button/Button";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  
+  const [enteredFormData, SetEnteredFormData] = useState({
+    username: "",
+    password: "",
+  });
 
-  const [_login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [error, setError] = useState("");
+  
+  const handleInputChange = (e) => {
+    SetEnteredFormData({
+      ...enteredFormData,
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(enteredFormData)
 
     setFormErrors({});
     let formIsValid = true;
@@ -34,28 +48,28 @@ const LoginPage = () => {
       return;
     }
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/api/users/login",
-        {
-          username: e.target.username.value,
-          password: e.target.password.value,
-        }
-      );
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:8080/api/users/login",
+    //     {
+    //       username: e.target.username.value,
+    //       password: e.target.password.value,
+    //     }
+    //   );
 
-      sessionStorage.setItem("AuthToken", response.data.authToken);
+    //   sessionStorage.setItem("AuthToken", response.data.authToken);
 
-      setLogin(true);
-      navigate("/loading");
-      setTimeout(() => {
-        navigate(`/profile`);
-      }, 2000);
-    } catch (error) {
-      console.log(error);
-      setError(error.response.data.error.message);
-    }
+    //   setLogin(true);
+    //   navigate("/loading");
+    //   setTimeout(() => {
+    //     navigate(`/profile`);
+    //   }, 2000);
+    // } catch (error) {
+    //   console.log(error);
+    //   setError(error.response.data.error.message);
+    // }
   };
-
+  
   return (
     <main>
       <section className="login">
@@ -80,6 +94,8 @@ const LoginPage = () => {
               name="username"
               label="Username"
               placeholder="Username"
+              onChange={handleInputChange}
+              value={enteredFormData.email}
             />
             {formErrors.password && (
               <small className="form__error">{formErrors.password}</small>
@@ -90,9 +106,10 @@ const LoginPage = () => {
               name="password"
               label="Password"
               placeholder="Password"
+              onChange={handleInputChange}
+              value={enteredFormData.password}
             />
             <div className="login__control">
-              <a className="login__forgot-password">Forgot Password ?</a>
             </div>
             <Button className="login__btn">Login</Button>
           </form>

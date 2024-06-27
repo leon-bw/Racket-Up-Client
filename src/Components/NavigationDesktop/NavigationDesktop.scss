@@ -3,26 +3,43 @@
 
 .navigation {
     
-    &__container {
-        @include flexbox($align-items: center, $justify: space-between);
-        border-bottom: 1px solid $primary-light;
+    // &__container {
+    //     // @include flexbox($align-items: center, $justify: space-between);
+    //     // border-bottom: 1px solid $primary-light;
+    // }
+
+    &__menu {
+        @include flexbox();
     }
 
-    &__link {
-        gap: 1rem;
+    &__branding {
+        @include flexbox($align-items: center);
     }
 
-    &__bar {
-        @include flexbox($align-items: center, $justify: space-between);
+    // &__link {
+    //     gap: 1rem;
+    // }
+
+    // &__bar {
+    //     @include flexbox($align-items: center, $justify: space-between);
+    // }
+
+    // &__signup {
+    //     @include hollow-btn;
+    // }
+
+    &__btns {
+        align-self: flex-end;
     }
 
     &--desktop{
         display: none;
         
         @include desktop{
-            @include flexbox($align-items: center, $justify: space-between);
+            @include flexbox($justify: space-between);
             max-width: 80rem;
-            margin-top: 1rem;
+            border-bottom: 1px solid $primary-light;
+            // margin-top: 1rem;
             margin: 0 auto;
         }
     }
@@ -31,10 +48,6 @@
         @include desktop {
             display: none;
         }
-    }
-
-    &__signup {
-        @include hollow-btn;
     }
 
 }

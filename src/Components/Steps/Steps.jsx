@@ -22,7 +22,7 @@ const Steps = () => {
           <li className="list__step-item">
             <h3 className="list__heading">Step Two</h3>
             <p className="list__text">
-              Search for players/matches based on location, skill level and
+              Search for matches based on location, skill level and
               availability
             </p>
           </li>

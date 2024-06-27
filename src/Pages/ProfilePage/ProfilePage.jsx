@@ -1,5 +1,5 @@
 import axios from "axios";
-import Modal from "react-modal";
+// import Modal from "react-modal";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProfilePage.scss";
@@ -15,55 +15,63 @@ import { MdModeEdit } from "react-icons/md";
 import Loader from "../../Components/Loader/Loader";
 import Level from "../../Components/Level/Level";
 import { useParams } from "react-router";
+import Modal from "../../Components/Modal/Modal";
+import Sport from "../../Components/Sport/Sport";
+import Location from "../../Components/Location/Location";
 
 const ProfilePage = () => {
   const { profileId } = useParams();
   const [user, setUser] = useState(null);
   const [failedAuth, setFailedAuth] = useState(false);
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState(["01:00", "23:00"]);
+  // const [date, setDate] = useState(new Date());
+  // const [time, setTime] = useState(["01:00", "23:00"]);
   const [level, setLevel] = useState("");
   const [sport, setSport] = useState("");
+  const [location, setLocation] = useState("");
   const [matches, setMatches] = useState(null);
   const [error, setError] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [newSport, setNewSport] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const filters = {
-      level: level,
-      startTime: time[0],
-      endTime: time[1],
-      date: date,
+    console.log(e.target.sport.value)
+
+    const newGame = {
+      user_id_1: user.id,
+      sport_id: e.target.sport.value,
+      skill_level: e.target.skill_level.value,
+      court_id: e.target.location.value
     };
     try {
       const { data } = await axios.post(
-        `http://localhost:8080/api/matches/find-matches`,
-        filters
+        `http://localhost:8080/api/matches`, newGame
       );
       setMatches(data.data);
       console.log(data);
-      navigate("/find-matches", { state: { filteredMatches: data.data } });
-    } catch (error) {}
-  };
-
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    try {
-      const userId = user.id;
-      const { data } = await axios.patch(
-        `http://localhost:8080/profile/${userId}`,
-        { sport }
-      );
-      setUser({ ...user, sport: data.sport });
-      setSport(data.data);
+      navigate("/matches");
     } catch (error) {
       console.log(error);
-      setError(error.response.data.error);
     }
   };
+  // { state: { filteredMatches: data.data } }
+
+  // const handleUpdate = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const userId = user.id;
+  //     const { data } = await axios.patch(
+  //       `http://localhost:8080/profile/${userId}`,
+  //       { sport }
+  //     );
+  //     setUser({ ...user, sport: data.sport });
+  //     setSport(data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setError(error.response.data.error);
+  //   }
+  // };
 
   useEffect(() => {
     const getProfile = async () => {
@@ -93,24 +101,6 @@ const ProfilePage = () => {
   }, []);
 
   const navigate = useNavigate();
-
-  const openModal = (e) => {
-    e.preventDefault();
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  const handleSportChange = (e) => {
-    setNewSport(e.target.value);
-  };
-
-  const handleUpdateSport = () => {
-    handleUpdate();
-    closeModal();
-  };
 
   const handleLogout = () => {
     sessionStorage.removeItem("AuthToken");
@@ -162,41 +152,27 @@ const ProfilePage = () => {
             <div className="profile__header">
               <section className="profile__sport">
                 <h3 className="profile__heading">Sport: </h3>
-                <h4 className="profile__chosen-sport">{user.sport}</h4>
-                <button className="profile__edit" onClick={openModal}>
-                  <MdModeEdit />
-                </button>
-                <Modal ariaHideApp={false} className="profile__modal" isOpen={isOpen} onRequestClose={closeModal}>
-                  <h3 className="profile__modal-heading">Change Sport</h3>
-                  <input
-                    className="profile__modal-sport"
-                    type="text"
-                    placeholder="Enter new sport"
-                    value={newSport}
-                    onChange={handleSportChange}
-                  />
-                  <Button className="profile__update" onClick={handleUpdateSport}>Update Sport</Button>
-                  <Button  className="profile__cancel" onClick={closeModal}>Cancel</Button>
-                </Modal>
+                <Sport className="profile__sport-select" setSport={setSport} usersSport={user.sport}/>
               </section>
               <section className="profile__skill">
-                <h3 className="profile__heading">Skill Level:</h3>
+                <h3 className="profile__heading">Skill Level:</h3> 
                 <Level className="profile__level" setLevel={setLevel} />
               </section>
             </div>
+            <div className="">
+            <section className="profile__location">
+                <h3 className="profile__heading">Court:</h3> 
+                <Location className="profile__location-select" setLocation={setLocation} />
+              </section>
+            </div>
             <section className="profile__find-game">
-              <h3 className="profile__heading">Search for availability</h3>
               <section className="profile__available">
-                <h4 className="profile__date-heading">Set Date</h4>
+                {/* <h4 className="profile__date-heading">Set Date</h4>
                 <div className="profile__date">
                   <DatePicker onChange={setDate} value={date} />
-                </div>
-                <div className="profile__time">
-                  <h4 className="profile__time-heading">Set Time</h4>
-                  <TimeRangePicker onChange={setTime} value={time} />
-                </div>
+                </div> */}
               </section>
-              <Button className="profile__game">Find a Game</Button>
+              <Button type="submit" className="profile__game">Create a Game</Button>
             </section>
           </div>
         </div>

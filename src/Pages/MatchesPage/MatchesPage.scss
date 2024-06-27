@@ -6,15 +6,41 @@
     &__container {
         @include container;
         max-width: 60rem;
-        background-color: $secondary;
+        background-color: $primary-dark;
+        padding: .5rem;
     }
 
     &__heading {
         font-family: "ClashDisplay";
+        color: $primary-light;
+        font-weight: 600;
+        font-size: 1.5rem;
     }
 
     &-list {
         padding: .5rem;
+
+        &__join {
+            background-color: $grass;
+            color: $primary-light;
+            width: 30%;
+        }
+
+        &__edit {
+            @include hollow-btn;
+            width: 15%;
+        }
+
+        &__controls {
+            width: 80%;
+            @include flexbox($justify: space-between, $gap: 2rem, $direction: column);
+            margin: auto;
+
+            @include tablet {
+                width: 100%;
+                @include flexbox($direction: row, $justify: space-between);
+            }
+        }
     }
 
     &-list__item {
@@ -24,6 +50,7 @@
     }
 
     &-list__details {
-        @include flexbox($align-items: center, $justify: space-between);
+        @include flexbox($align-items: center, $justify: space-between, $wrap: wrap);
     }
+
 }
