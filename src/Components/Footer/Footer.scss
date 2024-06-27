@@ -1,0 +1,12 @@
+@use "../../styles/partials/utilities/mixins" as *;
+@use "../../styles/partials/utilities/variables" as *;
+
+.footer {
+  &__content {
+    @include flexbox($justify: end, $align-items: center, $direction: column);
+    margin-top: 8rem;
+    height: 15rem;
+    color: $primary-light;
+    padding-bottom: 0.5rem;
+  }
+}

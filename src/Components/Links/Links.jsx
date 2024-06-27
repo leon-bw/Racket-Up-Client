@@ -10,7 +10,7 @@ export const links = [
   },
   {
     title: "Find Matches",
-    href: "/find-matches",
+    href: "/matches",
     Icon: MdOutlineSportsTennis,
   },
   {
