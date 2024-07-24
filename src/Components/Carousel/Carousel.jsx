@@ -6,7 +6,7 @@ import actionShot from "../../assets/images/tennis-serve-unsplash.jpg";
 import tennisClay from "../../assets/images/tennis-clay-unsplash.jpg";
 import communityShot from "../../assets/images/tennis-community-unsplash.jpg";
 import tennisLady from "../../assets/images/tennis-lady-playing-unsplash.jpg";
-import tennisCourt from "../../assets/images/tennis-court-unsplash.jpg";
+import tennisBall from "../../assets/images/tennis-ball-unsplash.jpg";
 
 const Carousel = () => {
   const targetRef = useRef(null);
@@ -34,7 +34,7 @@ const Carousel = () => {
       id: 3,
     },
     {
-      path: tennisCourt,
+      path: tennisBall,
       title: "Schedule Matches",
       id: 4,
     },

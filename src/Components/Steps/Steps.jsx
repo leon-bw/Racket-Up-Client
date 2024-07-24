@@ -15,14 +15,13 @@ const Steps = () => {
           <li className="list__step-item">
             <h3 className="list__heading">Step One</h3>
             <p className="list__text">
-              Create an account and set up your profile to set your desired
-              sport and preferences
+              Create an account and set up your profile to set your preferences
             </p>
           </li>
           <li className="list__step-item">
             <h3 className="list__heading">Step Two</h3>
             <p className="list__text">
-              Search for matches based on location, skill level and
+              Search for matches based on skill level and
               availability
             </p>
           </li>
@@ -36,7 +35,7 @@ const Steps = () => {
           <li className="list__step-item">
             <h3 className="list__heading">Step Four</h3>
             <p className="list__text">
-              Enjoy the sports you love and improve your skills while makikng
+              Enjoy the sport you love and improve your skills while making
               new connections
             </p>
           </li>
