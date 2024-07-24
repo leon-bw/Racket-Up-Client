@@ -2,9 +2,9 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import "./Carousel.scss";
 import PictureCard from "../PictureCard/PictureCard";
-import actionShot from "../../assets/images/badminton-action-unsplash.jpg";
+import actionShot from "../../assets/images/tennis-serve-unsplash.jpg";
 import tennisClay from "../../assets/images/tennis-clay-unsplash.jpg";
-import shuttleCock from "../../assets/images/badminton-shuttlecock-and-racket-on-red-floor-in_12087651.jpg";
+import communityShot from "../../assets/images/tennis-community-unsplash.jpg";
 import tennisLady from "../../assets/images/tennis-lady-playing-unsplash.jpg";
 import tennisCourt from "../../assets/images/tennis-court-unsplash.jpg";
 
@@ -19,7 +19,7 @@ const Carousel = () => {
 
   const images = [
     {
-      path: actionShot,
+      path: communityShot,
       title: "Join Our Community",
       id: 1,
     },
@@ -39,7 +39,7 @@ const Carousel = () => {
       id: 4,
     },
     {
-      path: shuttleCock,
+      path: actionShot,
       title: "Start playing today",
       id: 5,
     },
