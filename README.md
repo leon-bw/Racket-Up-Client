@@ -1,16 +1,20 @@
 # Racket Up
 
-## Overview
-
-It is a platform to help connect individuals who want to meet up and play Tennis, Squash or Badminton. When a user signs up you you say what sports you're interested in, your skill level, location and times you're available to play or meet up for a game.
+It is a platform to help connect individuals who want to keep active and meet up to play Tennis. When a user signs up you state your skill level and times you're available to play.
 
 ### Problem
 
-This is a problem that myself and others have personally faced, growing up I used to play tennis but found it difficult to find other people to play with especially if friends were busy or out of town. Due to this difficulty I decided to playing football instead and no longer play tennis. It can also be useful if you move to a new location and want to find local people in your area to play or compete with, promte a healthy and active lifestyle to get you adn others out the house or if you travel around for work and like to play sport occasional.
+Unlike some other sports tennis can sometimes be a bit challenging to find other people to play with especially if friends we know are unavailable or you happen to move to a new location and still want to continue playing the sport you love and want to find local people in your area to play or compete with or maintain an active lifestyle.
 
-### User Profile
+### Get Started
 
-Anyone looking to keep active, an individual into racket sports and looking to pick up a hobby or continue their passion for racket sports whenever they have some spare time.
+To get started
+
+- Clone gitHub repository of Racket Up Client and Racket Up Server
+- On both client and server, install NPM packages with npm install
+- Create a database in MySQL, on server run npx knex migrate:latest then npx knex seed:run
+- Create .env file on the client and server side using the .env.example file provided as a guide, Client side e.g. REACT_APP_API_OPEN_AI_KEY = yourOpenAIKey, Please note when specifying the REACT_APP_API_BASE_URL, make sure to include /api at the end of the URL e.g. REACT_APP_API_BASE_URL = http://localhost:5050/api Server side e.g. PORT = yourport, DB_NAME = nameofdatabse
+Launch the application with npm start in the client and node index.js in the server
 
 ### Features
 
@@ -27,22 +31,35 @@ A user should
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
-
 #### Frontend
 - React
-- SCSS for styling
-- May use Framer Motion for some animations for a dynamic user experience
+- React-router
+- SASS
+- Axios
+- Framer Motion
 
 #### Backend
-- Node JS and Express
+- Express
+- MySQL2
 - Knex
-- React router
+- JsonWebToken
+- Bycrypt
+- Dotenv
+- Cors
 
 
-### APIs
+### Custom API
 
-- Possibly Random user API or Faker to simulate users on the platform, or generate users myself
+Here are the endpoints for the API
+
+POST /api/register
+POST /api/login
+POST /api/match
+GET /api/user
+GET /api/matches
+DELETE /api/match/:id
+PATCH /api/match/:id
+
 
 ### Sitemap
 
@@ -94,7 +111,5 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 ## Nice-to-haves
 
-- Could have a feature that allows users to post photos about their games
 - An area in the profile for recommendations from users for users about equipment or training routines
 - Chat/Add: Add or speak with users/friends before or after a game to arrange a time
-- Users can also add rating and reviews for tennis locations/venues
