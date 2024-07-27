@@ -6,7 +6,7 @@ import "./LoginPage.scss";
 import Button from "../../Components/Button/Button";
 
 const LoginPage = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
   const [enteredFormData, SetEnteredFormData] = useState({
     username: "",
@@ -48,26 +48,26 @@ const LoginPage = () => {
       return;
     }
 
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:8080/api/users/login",
-    //     {
-    //       username: e.target.username.value,
-    //       password: e.target.password.value,
-    //     }
-    //   );
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/users/login",
+        {
+          username: e.target.username.value,
+          password: e.target.password.value,
+        }
+      );
 
-    //   sessionStorage.setItem("AuthToken", response.data.authToken);
+      sessionStorage.setItem("AuthToken", response.data.authToken);
 
-    //   setLogin(true);
-    //   navigate("/loading");
-    //   setTimeout(() => {
-    //     navigate(`/profile`);
-    //   }, 2000);
-    // } catch (error) {
-    //   console.log(error);
-    //   setError(error.response.data.error.message);
-    // }
+      setLogin(true);
+      navigate("/loading");
+      setTimeout(() => {
+        navigate(`/profile`);
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data.error.message);
+    }
   };
   
   return (

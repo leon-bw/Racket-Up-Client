@@ -8,11 +8,11 @@ const Hero = () => {
       <div className="hero__container">
         <div className="hero__body">
           <h1 className="hero__heading">
-            Connecting Tennis Enthusiasts for thrilling matches
+            Connect and Compete with Fellow Tennis Players
           </h1>
           <h4 className="hero__subheading">
-            Connect with tennis enthusiasts and elevate your game. Join our
-            community and find a match today!
+            Elevate your tennis experience. Connect, play, and improve with
+            fellow tennis fans, join our community!
           </h4>
           <div className="hero__btns">
             <Anchor route="/signup" className="hero__join">

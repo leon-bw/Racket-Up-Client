@@ -150,13 +150,13 @@ const ProfilePage = () => {
               </Button>
             </div>
             <div className="profile__header">
-              <section className="profile__sport">
+              {/* <section className="profile__sport">
                 <h3 className="profile__heading">Sport: </h3>
                 <Sport className="profile__sport-select" setSport={setSport} usersSport={user.sport}/>
-              </section>
+              </section> */}
               <section className="profile__skill">
-                <h3 className="profile__heading">Skill Level:</h3> 
-                <Level className="profile__level" setLevel={setLevel} />
+                <h3 className="profile__heading">Skill Level: {user.skill_level}</h3> 
+                {/* <Level className="profile__level" setLevel={setLevel} /> */}
               </section>
             </div>
             <div className="">
@@ -166,12 +166,12 @@ const ProfilePage = () => {
               </section>
             </div>
             <section className="profile__find-game">
-              <section className="profile__available">
+              {/* <section className="profile__available"> */}
                 {/* <h4 className="profile__date-heading">Set Date</h4>
                 <div className="profile__date">
                   <DatePicker onChange={setDate} value={date} />
                 </div> */}
-              </section>
+              {/* </section> */}
               <Button type="submit" className="profile__game">Create a Game</Button>
             </section>
           </div>
